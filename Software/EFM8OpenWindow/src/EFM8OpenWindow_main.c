@@ -14,6 +14,10 @@
 // $[Generated Includes]
 // [Generated Includes]$
 
+#include "UART1.h"
+#include <stdio.h>
+
+
 //-----------------------------------------------------------------------------
 // SiLabs_Startup() Routine
 // ----------------------------------------------------------------------------
@@ -35,10 +39,15 @@ int main (void)
 {
   // Call hardware initialization routine
   enter_DefaultMode_from_RESET();
+  UART1_init();
   
+
+  printf("Sup dawg\r\n");
+  printf("Manz got print \r\n");
   while (1) 
   {
     // $[Generated Run-time code]
     // [Generated Run-time code]$
+
   }                             
 }

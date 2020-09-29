@@ -8,7 +8,7 @@
 #ifndef INC_BUFFER_H_
 #define INC_BUFFER_H_
 
-#define BUFFER_SIZE 20
+#define BUFFER_SIZE 100
 #include <si_toolchain.h>
 
 typedef struct {
