@@ -37,17 +37,30 @@ void SiLabs_Startup (void)
 // ----------------------------------------------------------------------------
 int main (void)
 {
+  volatile long i = 0;
+  uint8_t old_page;
+  bool cmp0_output;
+
   // Call hardware initialization routine
   enter_DefaultMode_from_RESET();
   UART1_init();
   
+  printf("OpenWindow V0.0\r\n");
 
-  printf("Sup dawg\r\n");
-  printf("Manz got print \r\n");
   while (1) 
   {
     // $[Generated Run-time code]
     // [Generated Run-time code]$
 
+    for (i = 0; i < 100000; i++) {
+
+    }
+#define CMP0_SFRPAGE 0x10
+
+    old_page = SFRPAGE;
+    SFRPAGE = CMP0_SFRPAGE;
+    cmp0_output = CMP0CN0 & CMP0CN0_CPOUT__BMASK;
+    printf("CMP0 Output: %d\r\n", (int)cmp0_output);
+    SFRPAGE = old_page;
   }                             
 }

@@ -9,6 +9,7 @@
 // USER INCLUDES
 #include <SI_EFM8BB2_Register_Enums.h>
 #include "UART1.h"
+#include <stdio.h>
 
 //-----------------------------------------------------------------------------
 // UART1_ISR
@@ -23,13 +24,40 @@
 //-----------------------------------------------------------------------------
 SI_INTERRUPT (UART1_ISR, UART1_IRQn)
   {
-    if (SCON1_TI) {
+    if (SCON1_TI)
+      {
         SCON1_TI = 0;
         UART1_tx_callback();
-    }
-    if (SCON1_RI) {
+      }
+    if (SCON1_RI)
+      {
         SCON1_RI = 0;
         UART1_rx_callback();
+      }
+  }
+
+//-----------------------------------------------------------------------------
+// CMP0_ISR
+//-----------------------------------------------------------------------------
+//
+// CMP0 ISR Content goes here. Remember to clear flag bits:
+// CMP0CN0::CPFIF (Comparator Falling-Edge Flag)
+// CMP0CN0::CPRIF (Comparator Rising-Edge Flag)
+//
+//-----------------------------------------------------------------------------
+SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
+  {
+    if(CMP0CN0 & CMP0CN0_CPRIF__BMASK) {
+        // Rising edge flag
+        CMP0CN0 = CMP0CN0 ^ CMP0CN0_CPRIF__BMASK;
+        printf("CMP0 rising\r\n");
+
+    }
+
+    if(CMP0CN0 & CMP0CN0_CPFIF__BMASK) {
+        // Falling edge flag
+        CMP0CN0 = CMP0CN0 ^ CMP0CN0_CPFIF__BMASK;
+        printf("CMP0 falling\r\n");
     }
   }
 
