@@ -30,6 +30,7 @@ enter_DefaultMode_from_RESET (void)
   PBCFG_0_enter_DefaultMode_from_RESET ();
   CLOCK_0_enter_DefaultMode_from_RESET ();
   UARTE_1_enter_DefaultMode_from_RESET ();
+  INTERRUPT_0_enter_DefaultMode_from_RESET ();
   // Restore the SFRPAGE
   SFRPAGE = SFRPAGE_save;
   // [Config Calls]$
@@ -209,6 +210,59 @@ CLOCK_0_enter_DefaultMode_from_RESET (void)
   while ((CLKSEL & CLKSEL_DIVRDY__BMASK) == CLKSEL_DIVRDY__NOT_READY)
     ;
   // [CLKSEL - Clock Select]$
+
+}
+
+extern void
+INTERRUPT_0_enter_DefaultMode_from_RESET (void)
+{
+  // $[EIE1 - Extended Interrupt Enable 1]
+  // [EIE1 - Extended Interrupt Enable 1]$
+
+  // $[EIE2 - Extended Interrupt Enable 2]
+  /***********************************************************************
+   - Disable all I2C0 slave interrupts
+   - Disable Timer 4 interrupts
+   - Enable UART1 interrupts
+   ***********************************************************************/
+  SFRPAGE = 0x10;
+  EIE2 = EIE2_EI2C0__DISABLED | EIE2_ET4__DISABLED | EIE2_ES1__ENABLED;
+  // [EIE2 - Extended Interrupt Enable 2]$
+
+  // $[EIP1H - Extended Interrupt Priority 1 High]
+  // [EIP1H - Extended Interrupt Priority 1 High]$
+
+  // $[EIP1 - Extended Interrupt Priority 1 Low]
+  // [EIP1 - Extended Interrupt Priority 1 Low]$
+
+  // $[EIP2 - Extended Interrupt Priority 2]
+  // [EIP2 - Extended Interrupt Priority 2]$
+
+  // $[EIP2H - Extended Interrupt Priority 2 High]
+  // [EIP2H - Extended Interrupt Priority 2 High]$
+
+  // $[IE - Interrupt Enable]
+  /***********************************************************************
+   - Enable each interrupt according to its individual mask setting
+   - Disable external interrupt 0
+   - Disable external interrupt 1
+   - Disable all SPI0 interrupts
+   - Disable all Timer 0 interrupt
+   - Disable all Timer 1 interrupt
+   - Disable Timer 2 interrupt
+   - Disable UART0 interrupt
+   ***********************************************************************/
+  SFRPAGE = 0x00;
+  IE = IE_EA__ENABLED | IE_EX0__DISABLED | IE_EX1__DISABLED | IE_ESPI0__DISABLED
+      | IE_ET0__DISABLED | IE_ET1__DISABLED | IE_ET2__DISABLED
+      | IE_ES0__DISABLED;
+  // [IE - Interrupt Enable]$
+
+  // $[IP - Interrupt Priority]
+  // [IP - Interrupt Priority]$
+
+  // $[IPH - Interrupt Priority High]
+  // [IPH - Interrupt Priority High]$
 
 }
 

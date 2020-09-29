@@ -6,6 +6,9 @@
     <property object="CMP_0" propertyId="cmp.enable.enablecomparator" value="Enabled"/>
     <property object="CROSSBAR0" propertyId="xbar0.uart1.data" value="Enabled"/>
     <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100"/>
+    <property object="INTERRUPT_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable2.enableuart1interrupt" value="Enabled"/>
+    <property object="INTERRUPT_0" propertyId="interrupt.interruptenable.enableallinterrupts" value="Enabled"/>
     <property object="P0.0" propertyId="ports.settings.skip" value="Skipped"/>
     <property object="P0.1" propertyId="ports.settings.skip" value="Skipped"/>
     <property object="P0.2" propertyId="ports.settings.skip" value="Skipped"/>
