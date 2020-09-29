@@ -51,6 +51,10 @@ SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
       {
         // Rising edge flag
         CMP0CN0 = CMP0CN0 ^ CMP0CN0_CPRIF__BMASK;
+
+        // Pull P1.4 high when CMP0 is high
+        P1 = (P1 & ~P1_B4__BMASK) + P1_B4__BMASK;
+
         printf("CMP0 rising\r\n");
 
       }
@@ -59,6 +63,9 @@ SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
       {
         // Falling edge flag
         CMP0CN0 = CMP0CN0 ^ CMP0CN0_CPFIF__BMASK;
+
+        // Pull P1.4 low when CMP0 is low
+        P1 = P1 & ~P1_B4__BMASK;
         printf("CMP0 falling\r\n");
       }
   }
@@ -78,6 +85,10 @@ SI_INTERRUPT (CMP1_ISR, CMP1_IRQn)
     {
       // Rising edge flag
       CMP1CN0 = CMP1CN0 ^ CMP1CN0_CPRIF__BMASK;
+
+      // Pull P1.5 high when CMP1 is high
+      P1 = (P1 & ~P1_B5__BMASK) + P1_B5__BMASK;
+
       printf("CMP1 rising\r\n");
 
     }
@@ -86,6 +97,10 @@ SI_INTERRUPT (CMP1_ISR, CMP1_IRQn)
     {
       // Falling edge flag
       CMP1CN0 = CMP1CN0 ^ CMP1CN0_CPFIF__BMASK;
+
+      // Pull P1.5 low when CMP1 is low
+      P1 = P1 & ~P1_B5__BMASK;
+
       printf("CMP1 falling\r\n");
     }
   }
