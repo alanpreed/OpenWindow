@@ -4,16 +4,28 @@
     <property object="CLOCK_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="CLOCK_0" propertyId="clock.clockselect.clocksourcedivider" value="SYSCLK / 1"/>
     <property object="CMP_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="CMP_0" propertyId="cmp.control.negativehysteresis" value="~20 mV"/>
+    <property object="CMP_0" propertyId="cmp.control.positivehysteresis" value="~20 mV"/>
     <property object="CMP_0" propertyId="cmp.enable.enablecomparator" value="Enabled"/>
     <property object="CMP_0" propertyId="cmp.input.inputselection" value="CMP+ and DAC"/>
     <property object="CMP_0" propertyId="cmp.input.internalcomparatordacreferencesetting" value="39"/>
     <property object="CMP_0" propertyId="cmp.input.positiveinputmuxselection" value="CMP0P.0 (P0.0)"/>
     <property object="CMP_0" propertyId="cmp.interrupts.enablefallingedgeinterrupt" value="Enabled"/>
     <property object="CMP_0" propertyId="cmp.interrupts.enablerisingedgeinterrupt" value="Enabled"/>
+    <property object="CMP_1" propertyId="ABPeripheral.included" value="true"/>
+    <property object="CMP_1" propertyId="cmp.control.negativehysteresis" value="~20 mV"/>
+    <property object="CMP_1" propertyId="cmp.control.positivehysteresis" value="~20 mV"/>
+    <property object="CMP_1" propertyId="cmp.enable.enablecomparator" value="Enabled"/>
+    <property object="CMP_1" propertyId="cmp.input.inputselection" value="CMP+ and DAC"/>
+    <property object="CMP_1" propertyId="cmp.input.internalcomparatordacreferencesetting" value="19"/>
+    <property object="CMP_1" propertyId="cmp.input.positiveinputmuxselection" value="CMP1P.1 (P1.1)"/>
+    <property object="CMP_1" propertyId="cmp.interrupts.enablefallingedgeinterrupt" value="Enabled"/>
+    <property object="CMP_1" propertyId="cmp.interrupts.enablerisingedgeinterrupt" value="Enabled"/>
     <property object="CROSSBAR0" propertyId="xbar0.uart1.data" value="Enabled"/>
     <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100"/>
     <property object="INTERRUPT_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable1.enablecomparator0cp0interrupt" value="Enabled"/>
+    <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable1.enablecomparator1cp1interrupt" value="Enabled"/>
     <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable2.enableuart1interrupt" value="Enabled"/>
     <property object="INTERRUPT_0" propertyId="interrupt.interruptenable.enableallinterrupts" value="Enabled"/>
     <property object="P0.0" propertyId="ports.settings.inputmode" value="Analog"/>
@@ -24,6 +36,9 @@
     <property object="P0.3" propertyId="ports.settings.skip" value="Skipped"/>
     <property object="P0.4" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
     <property object="P0.4" propertyId="ports.settings.outputmode" value="Push-pull"/>
+    <property object="P1.1" propertyId="ports.settings.inputmode" value="Analog"/>
+    <property object="P1.1" propertyId="ports.settings.iomode" value="Analog I/O"/>
+    <property object="P1.1" propertyId="ports.settings.skip" value="Skipped"/>
     <property object="PBCFG_0" propertyId="pbcfg.settings.enablecrossbar" value="Enabled"/>
     <property object="UARTE_1" propertyId="ABPeripheral.included" value="true"/>
     <property object="UARTE_1" propertyId="uarte.baudrategeneratorcontrol.actualbaudrate" value="115566"/>

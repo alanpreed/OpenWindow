@@ -47,17 +47,46 @@ SI_INTERRUPT (UART1_ISR, UART1_IRQn)
 //-----------------------------------------------------------------------------
 SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
   {
-    if(CMP0CN0 & CMP0CN0_CPRIF__BMASK) {
+    if(CMP0CN0 & CMP0CN0_CPRIF__BMASK)
+      {
         // Rising edge flag
         CMP0CN0 = CMP0CN0 ^ CMP0CN0_CPRIF__BMASK;
         printf("CMP0 rising\r\n");
 
-    }
+      }
 
-    if(CMP0CN0 & CMP0CN0_CPFIF__BMASK) {
+    if(CMP0CN0 & CMP0CN0_CPFIF__BMASK)
+      {
         // Falling edge flag
         CMP0CN0 = CMP0CN0 ^ CMP0CN0_CPFIF__BMASK;
         printf("CMP0 falling\r\n");
+      }
+  }
+
+//-----------------------------------------------------------------------------
+// CMP1_ISR
+//-----------------------------------------------------------------------------
+//
+// CMP1 ISR Content goes here. Remember to clear flag bits:
+// CMP1CN0::CPFIF (Comparator Falling-Edge Flag)
+// CMP1CN0::CPRIF (Comparator Rising-Edge Flag)
+//
+//-----------------------------------------------------------------------------
+SI_INTERRUPT (CMP1_ISR, CMP1_IRQn)
+  {
+  if(CMP1CN0 & CMP1CN0_CPRIF__BMASK)
+    {
+      // Rising edge flag
+      CMP1CN0 = CMP1CN0 ^ CMP1CN0_CPRIF__BMASK;
+      printf("CMP1 rising\r\n");
+
+    }
+
+  if(CMP1CN0 & CMP1CN0_CPFIF__BMASK)
+    {
+      // Falling edge flag
+      CMP1CN0 = CMP1CN0 ^ CMP1CN0_CPFIF__BMASK;
+      printf("CMP1 falling\r\n");
     }
   }
 

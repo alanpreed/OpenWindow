@@ -40,6 +40,7 @@ int main (void)
   volatile long i = 0;
   uint8_t old_page;
   bool cmp0_output;
+  bool cmp1_output;
 
   // Call hardware initialization routine
   enter_DefaultMode_from_RESET();
@@ -52,15 +53,16 @@ int main (void)
     // $[Generated Run-time code]
     // [Generated Run-time code]$
 
-    for (i = 0; i < 100000; i++) {
+    for (i = 0; i < 200000; i++) {
 
     }
-#define CMP0_SFRPAGE 0x10
+#define CMP_SFRPAGE 0x10
 
     old_page = SFRPAGE;
-    SFRPAGE = CMP0_SFRPAGE;
+    SFRPAGE = CMP_SFRPAGE;
     cmp0_output = CMP0CN0 & CMP0CN0_CPOUT__BMASK;
-    printf("CMP0 Output: %d\r\n", (int)cmp0_output);
+    cmp1_output = CMP1CN0 & CMP1CN0_CPOUT__BMASK;
+    printf("CMP0: %d, CMP1: %d\r\n", (int)cmp0_output, (int)cmp1_output);
     SFRPAGE = old_page;
   }                             
 }
