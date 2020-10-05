@@ -10,6 +10,9 @@
 #include <stdint.h>
 #include <SI_EFM8BB2_Register_Enums.h>
 
+// Reference for how to wrap printf:
+// https://www.ozzu.com/cpp-tutorials/tutorial-writing-custom-printf-wrapper-function-t89166.html
+
 void safe_printf( const char* format, ... ) {
   uint8_t interrupt_status;
   va_list args;
