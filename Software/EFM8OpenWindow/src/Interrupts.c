@@ -9,7 +9,8 @@
 // USER INCLUDES
 #include <SI_EFM8BB2_Register_Enums.h>
 #include "UART1.h"
-#include <stdio.h>
+#include "ADC.h"
+#include "safe_print.h"
 
 //-----------------------------------------------------------------------------
 // UART1_ISR
@@ -55,7 +56,7 @@ SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
         // Pull P1.4 high when CMP0 is high
         P1 = (P1 & ~P1_B4__BMASK) + P1_B4__BMASK;
 
-        printf("CMP0 rising\r\n");
+        safe_printf("CMP0 rising\r\n");
 
       }
 
@@ -66,7 +67,7 @@ SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
 
         // Pull P1.4 low when CMP0 is low
         P1 = P1 & ~P1_B4__BMASK;
-        printf("CMP0 falling\r\n");
+        safe_printf("CMP0 falling\r\n");
       }
   }
 
@@ -79,8 +80,7 @@ SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
 // CMP1CN0::CPRIF (Comparator Rising-Edge Flag)
 //
 //-----------------------------------------------------------------------------
-SI_INTERRUPT (CMP1_ISR, CMP1_IRQn)
-  {
+SI_INTERRUPT (CMP1_ISR, CMP1_IRQn) {
   if(CMP1CN0 & CMP1CN0_CPRIF__BMASK)
     {
       // Rising edge flag
@@ -89,7 +89,8 @@ SI_INTERRUPT (CMP1_ISR, CMP1_IRQn)
       // Pull P1.5 high when CMP1 is high
       P1 = (P1 & ~P1_B5__BMASK) + P1_B5__BMASK;
 
-      printf("CMP1 rising\r\n");
+
+      safe_printf("CMP1 rising\r\n");
 
     }
 
@@ -101,7 +102,21 @@ SI_INTERRUPT (CMP1_ISR, CMP1_IRQn)
       // Pull P1.5 low when CMP1 is low
       P1 = P1 & ~P1_B5__BMASK;
 
-      printf("CMP1 falling\r\n");
+      safe_printf("CMP1 falling\r\n");
     }
+}
+
+//-----------------------------------------------------------------------------
+// ADC0EOC_ISR
+//-----------------------------------------------------------------------------
+//
+// ADC0EOC ISR Content goes here. Remember to clear flag bits:
+// ADC0CN0::ADINT (Conversion Complete Interrupt Flag)
+//
+//-----------------------------------------------------------------------------
+SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
+  {
+    ADC0CN0_ADINT = 0;
+    ADC_callback();
   }
 

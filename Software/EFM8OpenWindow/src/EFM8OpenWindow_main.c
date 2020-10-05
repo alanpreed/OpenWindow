@@ -15,7 +15,8 @@
 // [Generated Includes]$
 
 #include "UART1.h"
-#include <stdio.h>
+#include "ADC.h"
+#include <safe_print.h>
 
 
 //-----------------------------------------------------------------------------
@@ -46,23 +47,27 @@ int main (void)
   enter_DefaultMode_from_RESET();
   UART1_init();
   
-  printf("OpenWindow V0.0\r\n");
+  safe_printf("OpenWindow V0.0\r\n");
+
 
   while (1) 
   {
     // $[Generated Run-time code]
     // [Generated Run-time code]$
 
-    for (i = 0; i < 200000; i++) {
+
+    for (i = 0; i < 300000; i++) {
 
     }
 #define CMP_SFRPAGE 0x10
+    ADC_start();
 
     old_page = SFRPAGE;
     SFRPAGE = CMP_SFRPAGE;
     cmp0_output = CMP0CN0 & CMP0CN0_CPOUT__BMASK;
     cmp1_output = CMP1CN0 & CMP1CN0_CPOUT__BMASK;
-    printf("CMP0: %d, CMP1: %d\r\n", (int)cmp0_output, (int)cmp1_output);
+
+    safe_printf("CMP0: %d, CMP1: %d\r\n", (int)cmp0_output, (int)cmp1_output);
     SFRPAGE = old_page;
   }                             
 }
