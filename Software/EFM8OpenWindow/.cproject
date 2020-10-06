@@ -57,7 +57,7 @@
                             							
                             <option id="com.silabs.ide.si8051.keil.toolchain.category.general.extended_assembler.1835754791" name="Use Extended Assembler (AX51) instead of A51" superClass="com.silabs.ide.si8051.keil.toolchain.category.general.extended_assembler" useByScannerDiscovery="false" value="true" valueType="boolean"/>
                             							
-                            <option id="com.silabs.ide.si8051.keil.toolchain.category.general.memory_model.1472275566" superClass="com.silabs.ide.si8051.keil.toolchain.category.general.memory_model" value="com.silabs.ide.si8051.keil.toolchain.category.general.memory_model.large" valueType="enumerated"/>
+                            <option id="com.silabs.ide.si8051.keil.toolchain.category.general.memory_model.1472275566" name="Memory model" superClass="com.silabs.ide.si8051.keil.toolchain.category.general.memory_model" value="com.silabs.ide.si8051.keil.toolchain.category.general.memory_model.large" valueType="enumerated"/>
                             							
                             <targetPlatform binaryParser="com.silabs.ss.tool.ide.c8051.debug.OMF;com.silabs.ss.tool.ide.c8051.debug.OMF2;com.silabs.ss.framework.debugger.core.BIN;com.silabs.ss.framework.debugger.core.HEX;com.silabs.ss.framework.debugger.core.S37;com.silabs.ss.framework.debugger.core.EBL;com.silabs.ss.framework.debugger.core.GBL" id="com.silabs.ide.si8051.keil.targetplatform.536523115" isAbstract="false" superClass="com.silabs.ide.si8051.keil.targetplatform"/>
                             							
@@ -108,6 +108,10 @@
                             </tool>
                             							
                             <tool command="LX51" id="com.silabs.ide.si8051.keil.toolchain.linker.916270978" name="Keil 8051 Linker" superClass="com.silabs.ide.si8051.keil.toolchain.linker">
+                                								
+                                <option id="com.silabs.ide.si8051.keil.linker.category.general.use_control_file.103242103" superClass="com.silabs.ide.si8051.keil.linker.category.general.use_control_file" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+                                								
+                                <option id="com.silabs.ide.si8051.keil.linker.category.general.control_file.1871701535" superClass="com.silabs.ide.si8051.keil.linker.category.general.control_file" useByScannerDiscovery="false" value="/home/alan/Programming/OpenWindow/Software/EFM8OpenWindow/linker_control.lin" valueType="string"/>
                                 								
                                 <inputType id="com.silabs.ide.si8051.keil.linker.inputType.1750067922" superClass="com.silabs.ide.si8051.keil.linker.inputType"/>
                                 							
