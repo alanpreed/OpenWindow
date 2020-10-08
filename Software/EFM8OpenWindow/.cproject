@@ -109,9 +109,9 @@
                             							
                             <tool command="LX51" id="com.silabs.ide.si8051.keil.toolchain.linker.916270978" name="Keil 8051 Linker" superClass="com.silabs.ide.si8051.keil.toolchain.linker">
                                 								
-                                <option id="com.silabs.ide.si8051.keil.linker.category.general.use_control_file.103242103" superClass="com.silabs.ide.si8051.keil.linker.category.general.use_control_file" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+                                <option id="com.silabs.ide.si8051.keil.linker.category.general.use_control_file.103242103" name="Use linker control file" superClass="com.silabs.ide.si8051.keil.linker.category.general.use_control_file" useByScannerDiscovery="false" value="true" valueType="boolean"/>
                                 								
-                                <option id="com.silabs.ide.si8051.keil.linker.category.general.control_file.1871701535" superClass="com.silabs.ide.si8051.keil.linker.category.general.control_file" useByScannerDiscovery="false" value="/home/alan/Programming/OpenWindow/Software/EFM8OpenWindow/linker_control.lin" valueType="string"/>
+                                <option id="com.silabs.ide.si8051.keil.linker.category.general.control_file.1871701535" name="" superClass="com.silabs.ide.si8051.keil.linker.category.general.control_file" useByScannerDiscovery="false" value="/home/alan/Programming/OpenWindow/Software/EFM8OpenWindow/linker_control.lin" valueType="string"/>
                                 								
                                 <inputType id="com.silabs.ide.si8051.keil.linker.inputType.1750067922" superClass="com.silabs.ide.si8051.keil.linker.inputType"/>
                                 							
