@@ -8,7 +8,7 @@
 #include "buffer.h"
 #include <SI_EFM8BB2_Register_Enums.h>
 
-uint8_t buffer_count(buffer_t *buffer) {
+uint8_t buffer_count(buffer_t *buffer) reentrant {
   uint8_t interrupt_status = IE_EA;
   IE_EA = 0;
 
@@ -20,7 +20,7 @@ uint8_t buffer_count(buffer_t *buffer) {
   return buffer->write_index - buffer->read_index;
 }
 
-bool buffer_put(buffer_t *buffer, uint8_t value) {
+bool buffer_put(buffer_t *buffer, uint8_t value) reentrant {
   uint8_t interrupt_status = IE_EA;
   IE_EA = 0;
 
@@ -35,7 +35,7 @@ bool buffer_put(buffer_t *buffer, uint8_t value) {
   return true;
 }
 
-bool buffer_get(buffer_t *buffer, uint8_t *value) {
+bool buffer_get(buffer_t *buffer, uint8_t *value) reentrant {
   uint8_t interrupt_status = IE_EA;
   IE_EA = 0;
 

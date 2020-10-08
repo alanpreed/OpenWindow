@@ -13,7 +13,7 @@
 // Reference for how to wrap printf:
 // https://www.ozzu.com/cpp-tutorials/tutorial-writing-custom-printf-wrapper-function-t89166.html
 
-void safe_printf( const char* format, ... ) {
+void safe_printf( const char* format, ... ) reentrant {
   uint8_t interrupt_status;
   va_list args;
 

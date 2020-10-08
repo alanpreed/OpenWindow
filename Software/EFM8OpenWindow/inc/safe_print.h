@@ -8,6 +8,6 @@
 #ifndef INC_SAFE_PRINT_H_
 #define INC_SAFE_PRINT_H_
 
-void safe_printf( const char* format, ... );
+void safe_printf( const char* format, ... ) reentrant;
 
 #endif /* INC_SAFE_PRINT_H_ */
