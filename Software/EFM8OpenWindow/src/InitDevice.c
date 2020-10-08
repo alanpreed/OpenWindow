@@ -328,12 +328,9 @@ CMP_0_enter_DefaultMode_from_RESET (void)
   /***********************************************************************
    - Connect the CMP- input to the internal DAC output, and CMP+ is
    selected by CMXP
-   - Comparator falling-edge interrupt enabled
-   - Comparator rising-edge interrupt enabled
    ***********************************************************************/
   SFRPAGE = 0x00;
-  CMP0MD |= CMP0MD_INSL__CMXP_DAC | CMP0MD_CPFIE__FALL_INT_ENABLED
-      | CMP0MD_CPRIE__RISE_INT_ENABLED;
+  CMP0MD |= CMP0MD_INSL__CMXP_DAC;
   // [CMP0MD - Comparator 0 Mode]$
 
   // $[CMP0CN0 - Comparator 0 Control 0]
@@ -439,12 +436,9 @@ CMP_1_enter_DefaultMode_from_RESET (void)
   /***********************************************************************
    - Connect the CMP- input to the internal DAC output, and CMP+ is
    selected by CMXP
-   - Comparator falling-edge interrupt enabled
-   - Comparator rising-edge interrupt enabled
    ***********************************************************************/
   SFRPAGE = 0x00;
-  CMP1MD |= CMP1MD_INSL__CMXP_DAC | CMP1MD_CPFIE__FALL_INT_ENABLED
-      | CMP1MD_CPRIE__RISE_INT_ENABLED;
+  CMP1MD |= CMP1MD_INSL__CMXP_DAC;
   // [CMP1MD - Comparator 1 Mode]$
 
   // $[CMP1CN0 - Comparator 1 Control 0]
