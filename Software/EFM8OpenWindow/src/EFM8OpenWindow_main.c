@@ -16,7 +16,9 @@
 
 #include "UART1.h"
 #include "ADC.h"
-#include <safe_print.h>
+#include "safe_print.h"
+#include "state_machine.h"
+#include "switch.h"
 
 
 //-----------------------------------------------------------------------------
@@ -38,36 +40,19 @@ void SiLabs_Startup (void)
 // ----------------------------------------------------------------------------
 int main (void)
 {
-  volatile long i = 0;
-  uint8_t old_page;
-  bool cmp0_output;
-  bool cmp1_output;
-
   // Call hardware initialization routine
   enter_DefaultMode_from_RESET();
   UART1_init();
-  
-  safe_printf("OpenWindow V0.0\r\n");
 
+  switch_init();
+  sm_init();
+
+  safe_printf("OpenWindow V0.0\r\n");
 
   while (1) 
   {
     // $[Generated Run-time code]
     // [Generated Run-time code]$
-
-
-    for (i = 0; i < 300000; i++) {
-
-    }
-#define CMP_SFRPAGE 0x10
-    ADC_start();
-
-    old_page = SFRPAGE;
-    SFRPAGE = CMP_SFRPAGE;
-    cmp0_output = CMP0CN0 & CMP0CN0_CPOUT__BMASK;
-    cmp1_output = CMP1CN0 & CMP1CN0_CPOUT__BMASK;
-
-    safe_printf("CMP0: %d, CMP1: %d\r\n", (int)cmp0_output, (int)cmp1_output);
-    SFRPAGE = old_page;
+    sm_run();
   }                             
 }

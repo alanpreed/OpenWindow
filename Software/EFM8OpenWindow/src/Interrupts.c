@@ -11,6 +11,7 @@
 #include "UART1.h"
 #include "ADC.h"
 #include "safe_print.h"
+#include "state_machine.h"
 
 //-----------------------------------------------------------------------------
 // UART1_ISR
@@ -23,19 +24,16 @@
 // UART1FCN1::TFRQ (Transmit FIFO Request)
 //
 //-----------------------------------------------------------------------------
-SI_INTERRUPT (UART1_ISR, UART1_IRQn)
-  {
-    if (SCON1_TI)
-      {
-        SCON1_TI = 0;
-        UART1_tx_callback();
-      }
-    if (SCON1_RI)
-      {
-        SCON1_RI = 0;
-        UART1_rx_callback();
-      }
+SI_INTERRUPT (UART1_ISR, UART1_IRQn) {
+  if (SCON1_TI) {
+    SCON1_TI = 0;
+    UART1_tx_callback();
   }
+  if (SCON1_RI) {
+    SCON1_RI = 0;
+    UART1_rx_callback();
+  }
+}
 
 //-----------------------------------------------------------------------------
 // CMP0_ISR
@@ -46,30 +44,25 @@ SI_INTERRUPT (UART1_ISR, UART1_IRQn)
 // CMP0CN0::CPRIF (Comparator Rising-Edge Flag)
 //
 //-----------------------------------------------------------------------------
-SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
-  {
-    if(CMP0CN0 & CMP0CN0_CPRIF__BMASK)
-      {
-        // Rising edge flag
-        CMP0CN0 = CMP0CN0 ^ CMP0CN0_CPRIF__BMASK;
+SI_INTERRUPT (CMP0_ISR, CMP0_IRQn) {
+  if(CMP0CN0 & CMP0CN0_CPRIF__BMASK) {
+    // Rising edge flag
+    CMP0CN0 &= ~CMP0CN0_CPRIF__BMASK;
 
-        // Pull P1.4 high when CMP0 is high
-        P1 = (P1 & ~P1_B4__BMASK) + P1_B4__BMASK;
+//    safe_printf("CMP0 rising\r\n");
+    sm_raise_event(SM_EVENT_SWITCH_TO_RAISE);
 
-        safe_printf("CMP0 rising\r\n");
-
-      }
-
-    if(CMP0CN0 & CMP0CN0_CPFIF__BMASK)
-      {
-        // Falling edge flag
-        CMP0CN0 = CMP0CN0 ^ CMP0CN0_CPFIF__BMASK;
-
-        // Pull P1.4 low when CMP0 is low
-        P1 = P1 & ~P1_B4__BMASK;
-        safe_printf("CMP0 falling\r\n");
-      }
   }
+
+  if(CMP0CN0 & CMP0CN0_CPFIF__BMASK) {
+    // Falling edge flag
+    CMP0CN0 &= ~CMP0CN0_CPFIF__BMASK;
+
+//    safe_printf("CMP0 falling\r\n");
+    sm_raise_event(SM_EVENT_SWITCH_TO_IDLE);
+
+  }
+}
 
 //-----------------------------------------------------------------------------
 // CMP1_ISR
@@ -81,29 +74,21 @@ SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
 //
 //-----------------------------------------------------------------------------
 SI_INTERRUPT (CMP1_ISR, CMP1_IRQn) {
-  if(CMP1CN0 & CMP1CN0_CPRIF__BMASK)
-    {
-      // Rising edge flag
-      CMP1CN0 = CMP1CN0 ^ CMP1CN0_CPRIF__BMASK;
+  if(CMP1CN0 & CMP1CN0_CPRIF__BMASK) {
+    // Rising edge flag
+    CMP1CN0 &= ~CMP1CN0_CPRIF__BMASK;
 
-      // Pull P1.5 high when CMP1 is high
-      P1 = (P1 & ~P1_B5__BMASK) + P1_B5__BMASK;
+//    safe_printf("CMP1 rising\r\n");
+    sm_raise_event(SM_EVENT_SWITCH_TO_IDLE);
+  }
 
+  if(CMP1CN0 & CMP1CN0_CPFIF__BMASK) {
+    // Falling edge flag
+    CMP1CN0 &= ~CMP1CN0_CPFIF__BMASK;
 
-      safe_printf("CMP1 rising\r\n");
-
-    }
-
-  if(CMP1CN0 & CMP1CN0_CPFIF__BMASK)
-    {
-      // Falling edge flag
-      CMP1CN0 = CMP1CN0 ^ CMP1CN0_CPFIF__BMASK;
-
-      // Pull P1.5 low when CMP1 is low
-      P1 = P1 & ~P1_B5__BMASK;
-
-      safe_printf("CMP1 falling\r\n");
-    }
+//    safe_printf("CMP1 falling\r\n");
+    sm_raise_event(SM_EVENT_SWITCH_TO_LOWER);
+  }
 }
 
 //-----------------------------------------------------------------------------
@@ -114,9 +99,8 @@ SI_INTERRUPT (CMP1_ISR, CMP1_IRQn) {
 // ADC0CN0::ADINT (Conversion Complete Interrupt Flag)
 //
 //-----------------------------------------------------------------------------
-SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
-  {
-    ADC0CN0_ADINT = 0;
-    ADC_callback();
-  }
+SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn) {
+  ADC0CN0_ADINT = 0;
+  ADC_callback();
+}
 
