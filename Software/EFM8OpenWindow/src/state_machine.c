@@ -10,6 +10,7 @@
 #include "buffer.h"
 #include "safe_print.h"
 #include "motor.h"
+#include "ADC.h"
 
 typedef enum {
   SM_STATE_IDLE,
@@ -33,9 +34,11 @@ static void enter_error(char *error_string);
 static void enter_idle(sm_position_t new_position);
 static void enter_lowering(void);
 static void enter_raising(void);
+static void ignore_event(char *message);
 
 void sm_init(void) {
   motor_stop();
+  ADC_stop();
   state = SM_STATE_IDLE;
   position = SM_POSITION_MIDDLE;
   new_event = SM_EVENT_NONE;
@@ -51,7 +54,7 @@ void sm_run(void) {
               enter_error("Switch should already be idle");
             }
             else {
-              safe_printf("Motor already idle\r\n");
+              ignore_event("Motor already idle");
             }
             break;
 
@@ -60,7 +63,7 @@ void sm_run(void) {
               enter_raising();
             }
             else {
-              safe_printf("Window already at top\r\n");
+              ignore_event("Window already at top");
             }
             break;
 
@@ -69,7 +72,7 @@ void sm_run(void) {
               enter_lowering();
             }
             else {
-              safe_printf("Window already at bottom\r\n");
+              ignore_event("Window already at bottom");
             }
             break;
 
@@ -155,9 +158,10 @@ void sm_raise_event(sm_event_t event) reentrant {
 // Transition functions
 
 static void enter_error(char *error_string) {
-  safe_printf("Error on event %d in state %d:\r\n", (int)state, (int)new_event);
+  safe_printf("Error on event %d in state %d: ", (int)new_event, (int)state);
   safe_printf("%s\r\n", error_string);
   motor_stop();
+  ADC_stop();
   state = SM_STATE_ERROR;
   new_event = SM_EVENT_NONE;
 }
@@ -165,6 +169,7 @@ static void enter_error(char *error_string) {
 static void enter_idle(sm_position_t new_position) {
   safe_printf("Returning to idle\r\n");
   motor_stop();
+  ADC_stop();
   state = SM_STATE_IDLE;
   position = new_position;
   new_event = SM_EVENT_NONE;
@@ -173,6 +178,7 @@ static void enter_idle(sm_position_t new_position) {
 static void enter_lowering(void) {
   safe_printf("Starting window lowering\r\n");
   motor_start_lowering();
+  ADC_start(ADC_MIN_LOWER_VAL, ADC_MAX_LOWER_VAL);
   state = SM_STATE_LOWERING;
   new_event = SM_EVENT_NONE;
 }
@@ -180,7 +186,13 @@ static void enter_lowering(void) {
 static void enter_raising(void) {
   safe_printf("Starting window raising\r\n");
   motor_start_raising();
+  ADC_start(ADC_MIN_RAISE_VAL, ADC_MAX_RAISE_VAL);
   state = SM_STATE_RAISING;
+  new_event = SM_EVENT_NONE;
+}
+
+static void ignore_event(char *message) {
+  safe_printf("%s\r\n", message);
   new_event = SM_EVENT_NONE;
 }
 

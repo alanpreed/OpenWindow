@@ -15,7 +15,6 @@
 // [Generated Includes]$
 
 #include "UART1.h"
-#include "ADC.h"
 #include "safe_print.h"
 #include "state_machine.h"
 #include "switch.h"

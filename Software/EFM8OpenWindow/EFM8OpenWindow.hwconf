@@ -30,6 +30,7 @@
     <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100"/>
     <property object="INTERRUPT_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable1.enableadc0conversioncompleteinterrupt" value="Enabled"/>
+    <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable1.enableadc0windowcomparisoninterrupt" value="Enabled"/>
     <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable1.enablecomparator0cp0interrupt" value="Enabled"/>
     <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable1.enablecomparator1cp1interrupt" value="Enabled"/>
     <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable2.enableuart1interrupt" value="Enabled"/>
@@ -60,9 +61,6 @@
     <property object="TIMER_SETUP_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.clockcontrol0.timer01prescale" value="SYSCLK / 48"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.mode" value="Mode 1, 16-bit Counter/Timer"/>
-    <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.timerrunningstate" value="Timer is Running"/>
-    <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.timerswitch1:runcontrol" value="Start"/>
-    <property object="TIMER_SETUP_0" propertyId="timer_setup.timer01control.timer0runcontrol" value="Start"/>
     <property object="UARTE_1" propertyId="ABPeripheral.included" value="true"/>
     <property object="UARTE_1" propertyId="uarte.baudrategeneratorcontrol.actualbaudrate" value="115566"/>
     <property object="UARTE_1" propertyId="uarte.baudrategeneratorcontrol.baudrateprescaler" value="Divide by 1"/>

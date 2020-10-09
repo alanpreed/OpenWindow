@@ -12,14 +12,25 @@
 
 #define ADC_SFR_PAGE 0x10
 
-void ADC_start(void) {
+void ADC_start(uint16_t min_val, uint16_t max_val) {
+
+  // Set window interrupt values
   uint8_t old_page = SFRPAGE;
 
   SFRPAGE = ADC_SFR_PAGE;
 
-  ADC0CN0_ADBUSY = 1;
+  ADC0GT = max_val;
+  ADC0LT = min_val;
 
   SFRPAGE = old_page;
+
+  // Start timer 0
+   TCON |= TCON_TR0__RUN;
+}
+
+void ADC_stop(void) {
+  // Stop timer 0
+  TCON &= ~TCON_TR0__RUN;
 }
 
 void ADC_callback(void) {
