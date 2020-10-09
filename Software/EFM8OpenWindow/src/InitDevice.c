@@ -28,11 +28,13 @@ enter_DefaultMode_from_RESET (void)
   WDT_0_enter_DefaultMode_from_RESET ();
   PORTS_0_enter_DefaultMode_from_RESET ();
   PORTS_1_enter_DefaultMode_from_RESET ();
+  PORTS_2_enter_DefaultMode_from_RESET ();
   PBCFG_0_enter_DefaultMode_from_RESET ();
   ADC_0_enter_DefaultMode_from_RESET ();
   CMP_0_enter_DefaultMode_from_RESET ();
   CMP_1_enter_DefaultMode_from_RESET ();
   CLOCK_0_enter_DefaultMode_from_RESET ();
+  TIMER_SETUP_0_enter_DefaultMode_from_RESET ();
   UARTE_1_enter_DefaultMode_from_RESET ();
   INTERRUPT_0_enter_DefaultMode_from_RESET ();
   // Restore the SFRPAGE
@@ -352,19 +354,6 @@ PORTS_1_enter_DefaultMode_from_RESET (void)
   // [P1 - Port 1 Pin Latch]$
 
   // $[P1MDOUT - Port 1 Output Mode]
-  /***********************************************************************
-   - P1.0 output is open-drain
-   - P1.1 output is open-drain
-   - P1.2 output is open-drain
-   - P1.3 output is open-drain
-   - P1.4 output is push-pull
-   - P1.5 output is push-pull
-   - P1.6 output is open-drain
-   - P1.7 output is open-drain
-   ***********************************************************************/
-  P1MDOUT = P1MDOUT_B0__OPEN_DRAIN | P1MDOUT_B1__OPEN_DRAIN
-      | P1MDOUT_B2__OPEN_DRAIN | P1MDOUT_B3__OPEN_DRAIN | P1MDOUT_B4__PUSH_PULL
-      | P1MDOUT_B5__PUSH_PULL | P1MDOUT_B6__OPEN_DRAIN | P1MDOUT_B7__OPEN_DRAIN;
   // [P1MDOUT - Port 1 Output Mode]$
 
   // $[P1MDIN - Port 1 Input Mode]
@@ -503,9 +492,87 @@ ADC_0_enter_DefaultMode_from_RESET (void)
   /***********************************************************************
    - Enable ADC0 
    - Enable ADC0 burst mode
+   - ADC0 conversion initiated on overflow of Timer 0
    ***********************************************************************/
-  ADC0CN0 |= ADC0CN0_ADEN__ENABLED | ADC0CN0_ADBMEN__BURST_ENABLED;
+  ADC0CN0 &= ~ADC0CN0_ADCM__FMASK;
+  ADC0CN0 |= ADC0CN0_ADEN__ENABLED | ADC0CN0_ADBMEN__BURST_ENABLED
+      | ADC0CN0_ADCM__TIMER0;
   // [ADC0CN0 - ADC0 Control 0]$
+
+}
+
+extern void
+PORTS_2_enter_DefaultMode_from_RESET (void)
+{
+  // $[P2 - Port 2 Pin Latch]
+  // [P2 - Port 2 Pin Latch]$
+
+  // $[P2MDOUT - Port 2 Output Mode]
+  /***********************************************************************
+   - P2.0 output is open-drain
+   - P2.1 output is push-pull
+   - P2.2 output is push-pull
+   - P2.3 output is open-drain
+   ***********************************************************************/
+  P2MDOUT = P2MDOUT_B0__OPEN_DRAIN | P2MDOUT_B1__PUSH_PULL
+      | P2MDOUT_B2__PUSH_PULL | P2MDOUT_B3__OPEN_DRAIN;
+  // [P2MDOUT - Port 2 Output Mode]$
+
+  // $[P2MDIN - Port 2 Input Mode]
+  // [P2MDIN - Port 2 Input Mode]$
+
+  // $[P2SKIP - Port 2 Skip]
+  // [P2SKIP - Port 2 Skip]$
+
+  // $[P2MASK - Port 2 Mask]
+  // [P2MASK - Port 2 Mask]$
+
+  // $[P2MAT - Port 2 Match]
+  // [P2MAT - Port 2 Match]$
+
+}
+
+extern void
+TIMER_SETUP_0_enter_DefaultMode_from_RESET (void)
+{
+  // $[CKCON0 - Clock Control 0]
+  /***********************************************************************
+   - System clock divided by 48
+   - Counter/Timer 0 uses the clock defined by the prescale field, SCA
+   - Timer 2 high byte uses the clock defined by T2XCLK in TMR2CN0
+   - Timer 2 low byte uses the clock defined by T2XCLK in TMR2CN0
+   - Timer 3 high byte uses the clock defined by T3XCLK in TMR3CN0
+   - Timer 3 low byte uses the clock defined by T3XCLK in TMR3CN0
+   - Timer 1 uses the clock defined by the prescale field, SCA
+   ***********************************************************************/
+  CKCON0 = CKCON0_SCA__SYSCLK_DIV_48 | CKCON0_T0M__PRESCALE
+      | CKCON0_T2MH__EXTERNAL_CLOCK | CKCON0_T2ML__EXTERNAL_CLOCK
+      | CKCON0_T3MH__EXTERNAL_CLOCK | CKCON0_T3ML__EXTERNAL_CLOCK
+      | CKCON0_T1M__PRESCALE;
+  // [CKCON0 - Clock Control 0]$
+
+  // $[CKCON1 - Clock Control 1]
+  // [CKCON1 - Clock Control 1]$
+
+  // $[TMOD - Timer 0/1 Mode]
+  /***********************************************************************
+   - Mode 1, 16-bit Counter/Timer
+   - Mode 0, 13-bit Counter/Timer
+   - Timer Mode
+   - Timer 0 enabled when TR0 = 1 irrespective of INT0 logic level
+   - Timer Mode
+   - Timer 1 enabled when TR1 = 1 irrespective of INT1 logic level
+   ***********************************************************************/
+  TMOD = TMOD_T0M__MODE1 | TMOD_T1M__MODE0 | TMOD_CT0__TIMER
+      | TMOD_GATE0__DISABLED | TMOD_CT1__TIMER | TMOD_GATE1__DISABLED;
+  // [TMOD - Timer 0/1 Mode]$
+
+  // $[TCON - Timer 0/1 Control]
+  /***********************************************************************
+   - Start Timer 0 running
+   ***********************************************************************/
+  TCON |= TCON_TR0__RUN;
+  // [TCON - Timer 0/1 Control]$
 
 }
 

@@ -7,6 +7,7 @@
     <property object="ADC_0" propertyId="adc.configuration.resolution" value="12-bit"/>
     <property object="ADC_0" propertyId="adc.control.enableadc" value="Enabled"/>
     <property object="ADC_0" propertyId="adc.control.enableburstmode" value="Enabled"/>
+    <property object="ADC_0" propertyId="adc.control.startofconversion" value="Timer 0 overflow"/>
     <property object="ADC_0" propertyId="adc.multiplexerselection.positiveinputselection" value="ADC0.7 (P0.7)"/>
     <property object="ADC_0" propertyId="adc.view.view" value="Advanced"/>
     <property object="CLOCK_0" propertyId="ABPeripheral.included" value="true"/>
@@ -47,11 +48,21 @@
     <property object="P1.1" propertyId="ports.settings.inputmode" value="Analog"/>
     <property object="P1.1" propertyId="ports.settings.iomode" value="Analog I/O"/>
     <property object="P1.1" propertyId="ports.settings.skip" value="Skipped"/>
-    <property object="P1.4" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
-    <property object="P1.4" propertyId="ports.settings.outputmode" value="Push-pull"/>
-    <property object="P1.5" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
-    <property object="P1.5" propertyId="ports.settings.outputmode" value="Push-pull"/>
+    <property object="P2.1" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
+    <property object="P2.1" propertyId="ports.settings.outputmode" value="Push-pull"/>
+    <property object="P2.2" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
+    <property object="P2.2" propertyId="ports.settings.outputmode" value="Push-pull"/>
     <property object="PBCFG_0" propertyId="pbcfg.settings.enablecrossbar" value="Enabled"/>
+    <property object="TIMER01_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="TIMER16_2" propertyId="ABPeripheral.included" value="true"/>
+    <property object="TIMER16_3" propertyId="ABPeripheral.included" value="true"/>
+    <property object="TIMER16_4" propertyId="ABPeripheral.included" value="true"/>
+    <property object="TIMER_SETUP_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="TIMER_SETUP_0" propertyId="timer_setup.clockcontrol0.timer01prescale" value="SYSCLK / 48"/>
+    <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.mode" value="Mode 1, 16-bit Counter/Timer"/>
+    <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.timerrunningstate" value="Timer is Running"/>
+    <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.timerswitch1:runcontrol" value="Start"/>
+    <property object="TIMER_SETUP_0" propertyId="timer_setup.timer01control.timer0runcontrol" value="Start"/>
     <property object="UARTE_1" propertyId="ABPeripheral.included" value="true"/>
     <property object="UARTE_1" propertyId="uarte.baudrategeneratorcontrol.actualbaudrate" value="115566"/>
     <property object="UARTE_1" propertyId="uarte.baudrategeneratorcontrol.baudrateprescaler" value="Divide by 1"/>
