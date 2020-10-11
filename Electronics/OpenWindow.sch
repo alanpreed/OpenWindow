@@ -1,0 +1,892 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "OpenWindow schematic"
+Date ""
+Rev "1"
+Comp "Alan Reed"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 5F5E8F96
+P 1150 3400
+F 0 "J?" H 1068 3817 50  0000 C CNN
+F 1 "Door connector" H 1068 3726 50  0000 C CNN
+F 2 "" H 1150 3400 50  0001 C CNN
+F 3 "~" H 1150 3400 50  0001 C CNN
+	1    1150 3400
+	-1   0    0    -1  
+$EndComp
+NoConn ~ 1350 3600
+$Comp
+L Device:R R?
+U 1 1 5F5EA212
+P 3850 4350
+F 0 "R?" H 3920 4396 50  0000 L CNN
+F 1 "6K2" H 3920 4305 50  0000 L CNN
+F 2 "" V 3780 4350 50  0001 C CNN
+F 3 "~" H 3850 4350 50  0001 C CNN
+	1    3850 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F5EB142
+P 3850 3850
+F 0 "R?" H 3920 3896 50  0000 L CNN
+F 1 "8K2" H 3920 3805 50  0000 L CNN
+F 2 "" V 3780 3850 50  0001 C CNN
+F 3 "~" H 3850 3850 50  0001 C CNN
+	1    3850 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F5EB8DF
+P 3850 4850
+F 0 "R?" H 3920 4896 50  0000 L CNN
+F 1 "2K2" H 3920 4805 50  0000 L CNN
+F 2 "" V 3780 4850 50  0001 C CNN
+F 3 "~" H 3850 4850 50  0001 C CNN
+	1    3850 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F5EDE51
+P 3850 5150
+F 0 "#PWR?" H 3850 4900 50  0001 C CNN
+F 1 "GND" H 3855 4977 50  0000 C CNN
+F 2 "" H 3850 5150 50  0001 C CNN
+F 3 "" H 3850 5150 50  0001 C CNN
+	1    3850 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR?
+U 1 1 5F83740E
+P 1500 3300
+F 0 "#PWR?" H 1500 3150 50  0001 C CNN
+F 1 "+12V" V 1500 3550 50  0000 C CNN
+F 2 "" H 1500 3300 50  0001 C CNN
+F 3 "" H 1500 3300 50  0001 C CNN
+	1    1500 3300
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F838292
+P 1500 3200
+F 0 "#PWR?" H 1500 2950 50  0001 C CNN
+F 1 "GND" V 1500 2950 50  0000 C CNN
+F 2 "" H 1500 3200 50  0001 C CNN
+F 3 "" H 1500 3200 50  0001 C CNN
+	1    1500 3200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F84EB4A
+P 6700 2850
+F 0 "R?" V 6493 2850 50  0000 C CNN
+F 1 "1K" V 6584 2850 50  0000 C CNN
+F 2 "" V 6630 2850 50  0001 C CNN
+F 3 "~" H 6700 2850 50  0001 C CNN
+	1    6700 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F8515A9
+P 7300 3200
+F 0 "#PWR?" H 7300 2950 50  0001 C CNN
+F 1 "GND" H 7305 3027 50  0000 C CNN
+F 2 "" H 7300 3200 50  0001 C CNN
+F 3 "" H 7300 3200 50  0001 C CNN
+	1    7300 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 2850 7000 2850
+Wire Wire Line
+	7300 3050 7300 3200
+$Comp
+L Transistor_BJT:PN2222A Q?
+U 1 1 5F84EB44
+P 7200 2850
+F 0 "Q?" H 7390 2896 50  0000 L CNN
+F 1 "PN2222A" H 6900 2650 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7400 2775 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/PN/PN2222A.pdf" H 7200 2850 50  0001 L CNN
+	1    7200 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L OpenWindow:MCCMA31-DC12V-C K?
+U 1 1 5F8301FE
+P 7500 2100
+F 0 "K?" H 7930 2146 50  0000 L CNN
+F 1 "MCCMA31-DC12V-C" H 7930 2055 50  0000 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x05_P1.00mm_Horizontal" H 7950 2050 50  0001 L CNN
+F 3 "http://www.farnell.com/datasheets/1490803.pdf" H 8150 1950 50  0001 L CNN
+	1    7500 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7300 2500 7300 2550
+$Comp
+L OpenWindow:+12V_switched #PWR?
+U 1 1 5F845C08
+P 7300 1550
+F 0 "#PWR?" H 7300 1400 50  0001 C CNN
+F 1 "+12V_switched" H 7200 1750 50  0000 C CNN
+F 2 "" H 7300 1550 50  0001 C CNN
+F 3 "" H 7300 1550 50  0001 C CNN
+	1    7300 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7300 1700 7300 1650
+$Comp
+L OpenWindow:+12V_switched #PWR?
+U 1 1 5F84AEF4
+P 3850 3550
+F 0 "#PWR?" H 3850 3400 50  0001 C CNN
+F 1 "+12V_switched" H 3865 3723 50  0000 C CNN
+F 2 "" H 3850 3550 50  0001 C CNN
+F 3 "" H 3850 3550 50  0001 C CNN
+	1    3850 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR?
+U 1 1 5F84BCF5
+P 7800 1550
+F 0 "#PWR?" H 7800 1400 50  0001 C CNN
+F 1 "+12V" H 7815 1723 50  0000 C CNN
+F 2 "" H 7800 1550 50  0001 C CNN
+F 3 "" H 7800 1550 50  0001 C CNN
+	1    7800 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 1700 7800 1550
+$Comp
+L power:GND #PWR?
+U 1 1 5F85684D
+P 7600 1550
+F 0 "#PWR?" H 7600 1300 50  0001 C CNN
+F 1 "GND" H 7605 1377 50  0000 C CNN
+F 2 "" H 7600 1550 50  0001 C CNN
+F 3 "" H 7600 1550 50  0001 C CNN
+	1    7600 1550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7600 1700 7600 1550
+$Comp
+L Diode:1N4007 D?
+U 1 1 5F86A2BD
+P 6700 2100
+F 0 "D?" V 6654 2180 50  0000 L CNN
+F 1 "1N4007" V 6745 2180 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 6700 1925 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 6700 2100 50  0001 C CNN
+	1    6700 2100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6700 1950 6700 1650
+Wire Wire Line
+	6700 1650 7300 1650
+Connection ~ 7300 1650
+Wire Wire Line
+	7300 1650 7300 1550
+Wire Wire Line
+	6700 2250 6700 2550
+Wire Wire Line
+	6700 2550 7300 2550
+Connection ~ 7300 2550
+Wire Wire Line
+	7300 2550 7300 2650
+$Comp
+L Regulator_Linear:LP2950-5.0_TO92 U?
+U 1 1 5F87E00A
+P 1850 6200
+F 0 "U?" H 1850 6442 50  0000 C CNN
+F 1 "LP2950-5.0_TO92" H 1850 6351 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 1850 6425 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/lp2951-n.pdf" H 1850 6150 50  0001 C CNN
+	1    1850 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 5F885FD9
+P 1300 6500
+F 0 "C?" H 1418 6546 50  0000 L CNN
+F 1 "2.2uF" H 1418 6455 50  0000 L CNN
+F 2 "" H 1338 6350 50  0001 C CNN
+F 3 "~" H 1300 6500 50  0001 C CNN
+	1    1300 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 5F88874B
+P 2400 6500
+F 0 "C?" H 2518 6546 50  0000 L CNN
+F 1 "2.2uF" H 2518 6455 50  0000 L CNN
+F 2 "" H 2438 6350 50  0001 C CNN
+F 3 "~" H 2400 6500 50  0001 C CNN
+	1    2400 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F889B5C
+P 1300 6800
+F 0 "#PWR?" H 1300 6550 50  0001 C CNN
+F 1 "GND" H 1305 6627 50  0000 C CNN
+F 2 "" H 1300 6800 50  0001 C CNN
+F 3 "" H 1300 6800 50  0001 C CNN
+	1    1300 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F88A5C6
+P 1850 6650
+F 0 "#PWR?" H 1850 6400 50  0001 C CNN
+F 1 "GND" H 1855 6477 50  0000 C CNN
+F 2 "" H 1850 6650 50  0001 C CNN
+F 3 "" H 1850 6650 50  0001 C CNN
+	1    1850 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F88A95D
+P 2400 6800
+F 0 "#PWR?" H 2400 6550 50  0001 C CNN
+F 1 "GND" H 2405 6627 50  0000 C CNN
+F 2 "" H 2400 6800 50  0001 C CNN
+F 3 "" H 2400 6800 50  0001 C CNN
+	1    2400 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5F88CB51
+P 2400 6050
+F 0 "#PWR?" H 2400 5900 50  0001 C CNN
+F 1 "+5V" H 2415 6223 50  0000 C CNN
+F 2 "" H 2400 6050 50  0001 C CNN
+F 3 "" H 2400 6050 50  0001 C CNN
+	1    2400 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L OpenWindow:+12V_switched #PWR?
+U 1 1 5F8A5E67
+P 1300 6050
+F 0 "#PWR?" H 1300 5900 50  0001 C CNN
+F 1 "+12V_switched" H 1315 6223 50  0000 C CNN
+F 2 "" H 1300 6050 50  0001 C CNN
+F 3 "" H 1300 6050 50  0001 C CNN
+	1    1300 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 6050 2400 6200
+Wire Wire Line
+	2150 6200 2400 6200
+Connection ~ 2400 6200
+Wire Wire Line
+	2400 6200 2400 6350
+Wire Wire Line
+	1300 6050 1300 6200
+Wire Wire Line
+	1300 6200 1550 6200
+Connection ~ 1300 6200
+Wire Wire Line
+	1300 6200 1300 6350
+Wire Wire Line
+	1300 6650 1300 6800
+Wire Wire Line
+	2400 6650 2400 6800
+Wire Wire Line
+	1850 6500 1850 6650
+$Comp
+L Transistor_FET:2N7000 Q?
+U 1 1 5F8BD9FE
+P 3750 2200
+F 0 "Q?" H 3954 2246 50  0000 L CNN
+F 1 "2N7000" H 3954 2155 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 3950 2125 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7000.pdf" H 3750 2200 50  0001 L CNN
+	1    3750 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F8C0345
+P 3200 2200
+F 0 "R?" V 3407 2200 50  0000 C CNN
+F 1 "1K" V 3316 2200 50  0000 C CNN
+F 2 "" V 3130 2200 50  0001 C CNN
+F 3 "~" H 3200 2200 50  0001 C CNN
+	1    3200 2200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F8C0B66
+P 2800 2500
+F 0 "R?" H 2870 2546 50  0000 L CNN
+F 1 "1M" H 2870 2455 50  0000 L CNN
+F 2 "" V 2730 2500 50  0001 C CNN
+F 3 "~" H 2800 2500 50  0001 C CNN
+	1    2800 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F8C2D78
+P 2800 2800
+F 0 "#PWR?" H 2800 2550 50  0001 C CNN
+F 1 "GND" H 2805 2627 50  0000 C CNN
+F 2 "" H 2800 2800 50  0001 C CNN
+F 3 "" H 2800 2800 50  0001 C CNN
+	1    2800 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F8C33FA
+P 3850 2550
+F 0 "#PWR?" H 3850 2300 50  0001 C CNN
+F 1 "GND" H 3855 2377 50  0000 C CNN
+F 2 "" H 3850 2550 50  0001 C CNN
+F 3 "" H 3850 2550 50  0001 C CNN
+	1    3850 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F8C58F7
+P 4000 1550
+F 0 "R?" H 4070 1596 50  0000 L CNN
+F 1 "10K" H 4070 1505 50  0000 L CNN
+F 2 "" V 3930 1550 50  0001 C CNN
+F 3 "~" H 4000 1550 50  0001 C CNN
+	1    4000 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L OpenWindow:FQU17P06TU Q?
+U 1 1 5F8CC278
+P 4350 1850
+F 0 "Q?" H 4555 1804 50  0000 L CNN
+F 1 "FQU17P06TU" H 4555 1895 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 4550 1950 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2304440.pdf" H 4350 1850 50  0001 C CNN
+	1    4350 1850
+	1    0    0    1   
+$EndComp
+$Comp
+L OpenWindow:+12V_switched #PWR?
+U 1 1 5F8DEEA3
+P 4450 2250
+F 0 "#PWR?" H 4450 2100 50  0001 C CNN
+F 1 "+12V_switched" H 4350 2450 50  0000 C CNN
+F 2 "" H 4450 2250 50  0001 C CNN
+F 3 "" H 4450 2250 50  0001 C CNN
+	1    4450 2250
+	-1   0    0    1   
+$EndComp
+$Comp
+L OpenWindow:FQU17P06TU Q?
+U 1 1 5F9027B4
+P 2850 1350
+F 0 "Q?" V 3192 1350 50  0000 C CNN
+F 1 "FQU17P06TU" V 3101 1350 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 3050 1450 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2304440.pdf" H 2850 1350 50  0001 C CNN
+	1    2850 1350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+12V #PWR?
+U 1 1 5F90ECCC
+P 2350 1100
+F 0 "#PWR?" H 2350 950 50  0001 C CNN
+F 1 "+12V" H 2365 1273 50  0000 C CNN
+F 2 "" H 2350 1100 50  0001 C CNN
+F 3 "" H 2350 1100 50  0001 C CNN
+	1    2350 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L OpenWindow:PGKE18CA-E3_54 D?
+U 1 1 5F9082DC
+P 2500 1550
+F 0 "D?" V 2454 1630 50  0000 L CNN
+F 1 "PGKE18CA-E3_54" V 2545 1630 50  0000 L CNN
+F 2 "Diode_THT:D_DO-15_P12.70mm_Horizontal" H 2500 1550 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2049206.pdf" H 2500 1550 50  0001 C CNN
+	1    2500 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F91AE85
+P 2850 1700
+F 0 "#PWR?" H 2850 1450 50  0001 C CNN
+F 1 "GND" H 2855 1527 50  0000 C CNN
+F 2 "" H 2850 1700 50  0001 C CNN
+F 3 "" H 2850 1700 50  0001 C CNN
+	1    2850 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 1100 2350 1250
+Wire Wire Line
+	2350 1250 2500 1250
+Wire Wire Line
+	2500 1400 2500 1250
+Connection ~ 2500 1250
+Wire Wire Line
+	2500 1250 2650 1250
+Wire Wire Line
+	2850 1550 2850 1700
+$Comp
+L power:GND #PWR?
+U 1 1 5F91D3BF
+P 2500 1850
+F 0 "#PWR?" H 2500 1600 50  0001 C CNN
+F 1 "GND" H 2505 1677 50  0000 C CNN
+F 2 "" H 2500 1850 50  0001 C CNN
+F 3 "" H 2500 1850 50  0001 C CNN
+	1    2500 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 1700 2500 1850
+Wire Wire Line
+	3050 1250 4000 1250
+Wire Wire Line
+	3850 2000 3850 1850
+Wire Wire Line
+	3850 1850 4000 1850
+Wire Wire Line
+	4000 1700 4000 1850
+Connection ~ 4000 1850
+Wire Wire Line
+	4000 1850 4150 1850
+Wire Wire Line
+	4000 1400 4000 1250
+Wire Wire Line
+	4000 1250 4450 1250
+Wire Wire Line
+	4450 1250 4450 1650
+Wire Wire Line
+	4450 2050 4450 2250
+Wire Wire Line
+	3850 2550 3850 2400
+Wire Wire Line
+	3550 2200 3350 2200
+Wire Wire Line
+	2800 2800 2800 2650
+Wire Wire Line
+	2800 2350 2800 2200
+Wire Wire Line
+	2800 2200 3050 2200
+Connection ~ 4000 1250
+Wire Wire Line
+	1350 3200 1500 3200
+Wire Wire Line
+	1350 3300 1500 3300
+Text Notes 2650 800  0    79   ~ 0
+Input protection
+Text Notes 4650 1650 0    79   ~ 0
+Ignition power switching
+Text Notes 1600 5700 0    79   ~ 0
+5V supply
+Wire Wire Line
+	3850 3550 3850 3700
+Wire Wire Line
+	3850 5000 3850 5150
+Wire Wire Line
+	3850 4200 3850 4100
+Connection ~ 3850 4100
+Wire Wire Line
+	3850 4100 3850 4000
+Text Notes 4150 4150 0    79   ~ 0
+Switch comparator 
+$Comp
+L Device:R R?
+U 1 1 5FA5972C
+P 9000 2850
+F 0 "R?" V 8793 2850 50  0000 C CNN
+F 1 "1K" V 8884 2850 50  0000 C CNN
+F 2 "" V 8930 2850 50  0001 C CNN
+F 3 "~" H 9000 2850 50  0001 C CNN
+	1    9000 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FA59732
+P 9600 3200
+F 0 "#PWR?" H 9600 2950 50  0001 C CNN
+F 1 "GND" H 9605 3027 50  0000 C CNN
+F 2 "" H 9600 3200 50  0001 C CNN
+F 3 "" H 9600 3200 50  0001 C CNN
+	1    9600 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9150 2850 9300 2850
+Wire Wire Line
+	9600 3050 9600 3200
+$Comp
+L Transistor_BJT:PN2222A Q?
+U 1 1 5FA5973A
+P 9500 2850
+F 0 "Q?" H 9690 2896 50  0000 L CNN
+F 1 "PN2222A" H 9200 2650 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 9700 2775 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/PN/PN2222A.pdf" H 9500 2850 50  0001 L CNN
+	1    9500 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L OpenWindow:MCCMA31-DC12V-C K?
+U 1 1 5FA59740
+P 9800 2100
+F 0 "K?" H 10230 2146 50  0000 L CNN
+F 1 "MCCMA31-DC12V-C" H 10230 2055 50  0000 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x05_P1.00mm_Horizontal" H 10250 2050 50  0001 L CNN
+F 3 "http://www.farnell.com/datasheets/1490803.pdf" H 10450 1950 50  0001 L CNN
+	1    9800 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9600 2500 9600 2550
+$Comp
+L OpenWindow:+12V_switched #PWR?
+U 1 1 5FA59747
+P 9600 1550
+F 0 "#PWR?" H 9600 1400 50  0001 C CNN
+F 1 "+12V_switched" H 9500 1750 50  0000 C CNN
+F 2 "" H 9600 1550 50  0001 C CNN
+F 3 "" H 9600 1550 50  0001 C CNN
+	1    9600 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9600 1700 9600 1650
+$Comp
+L power:+12V #PWR?
+U 1 1 5FA5974E
+P 10100 1550
+F 0 "#PWR?" H 10100 1400 50  0001 C CNN
+F 1 "+12V" H 10115 1723 50  0000 C CNN
+F 2 "" H 10100 1550 50  0001 C CNN
+F 3 "" H 10100 1550 50  0001 C CNN
+	1    10100 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10100 1700 10100 1550
+$Comp
+L power:GND #PWR?
+U 1 1 5FA59755
+P 9900 1550
+F 0 "#PWR?" H 9900 1300 50  0001 C CNN
+F 1 "GND" H 9905 1377 50  0000 C CNN
+F 2 "" H 9900 1550 50  0001 C CNN
+F 3 "" H 9900 1550 50  0001 C CNN
+	1    9900 1550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9900 1700 9900 1550
+$Comp
+L Diode:1N4007 D?
+U 1 1 5FA5975C
+P 9000 2100
+F 0 "D?" V 8954 2180 50  0000 L CNN
+F 1 "1N4007" V 9045 2180 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9000 1925 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 9000 2100 50  0001 C CNN
+	1    9000 2100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9000 1950 9000 1650
+Wire Wire Line
+	9000 1650 9600 1650
+Connection ~ 9600 1650
+Wire Wire Line
+	9600 1650 9600 1550
+Wire Wire Line
+	9000 2250 9000 2550
+Wire Wire Line
+	9000 2550 9600 2550
+Connection ~ 9600 2550
+Wire Wire Line
+	9600 2550 9600 2650
+$Comp
+L Motor:Motor_DC M?
+U 1 1 5FA5E922
+P 10000 4000
+F 0 "M?" H 10158 3996 50  0000 L CNN
+F 1 "Motor_DC" H 10158 3905 50  0000 L CNN
+F 2 "" H 10000 3910 50  0001 C CNN
+F 3 "~" H 10000 3910 50  0001 C CNN
+	1    10000 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 2200 2550 2200
+Connection ~ 2800 2200
+Text Notes 7900 1150 0    79   ~ 0
+Window motor control
+Wire Wire Line
+	10000 2500 10000 3800
+Wire Wire Line
+	7700 2500 7700 4450
+Wire Wire Line
+	10000 4300 10000 4450
+Text Notes 9300 4850 0    79   ~ 0
+Current sensing
+$Comp
+L OpenWindow:ACS712_PCB U?
+U 1 1 5FAFACAB
+P 8900 4600
+F 0 "U?" H 8900 5081 79  0000 C CNN
+F 1 "ACS712_PCB" H 8900 4946 79  0000 C CNN
+F 2 "" H 8900 4600 79  0001 C CNN
+F 3 "" H 8900 4600 79  0001 C CNN
+	1    8900 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 4450 8450 4450
+Wire Wire Line
+	9350 4450 10000 4450
+$Comp
+L power:GND #PWR?
+U 1 1 5FB0A09D
+P 8900 5100
+F 0 "#PWR?" H 8900 4850 50  0001 C CNN
+F 1 "GND" H 8905 4927 50  0000 C CNN
+F 2 "" H 8900 5100 50  0001 C CNN
+F 3 "" H 8900 5100 50  0001 C CNN
+	1    8900 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5FB0D048
+P 8750 5100
+F 0 "#PWR?" H 8750 4950 50  0001 C CNN
+F 1 "+5V" H 8765 5273 50  0000 C CNN
+F 2 "" H 8750 5100 50  0001 C CNN
+F 3 "" H 8750 5100 50  0001 C CNN
+	1    8750 5100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8750 4950 8750 5100
+Wire Wire Line
+	8900 4950 8900 5100
+$Comp
+L Device:R R?
+U 1 1 5FB2A90F
+P 9050 5250
+F 0 "R?" H 9120 5296 50  0000 L CNN
+F 1 "5K1" H 9120 5205 50  0000 L CNN
+F 2 "" V 8980 5250 50  0001 C CNN
+F 3 "~" H 9050 5250 50  0001 C CNN
+	1    9050 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FB2D883
+P 9050 5750
+F 0 "R?" H 9120 5796 50  0000 L CNN
+F 1 "10K" H 9120 5705 50  0000 L CNN
+F 2 "" V 8980 5750 50  0001 C CNN
+F 3 "~" H 9050 5750 50  0001 C CNN
+	1    9050 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB32AAE
+P 9050 6050
+F 0 "#PWR?" H 9050 5800 50  0001 C CNN
+F 1 "GND" H 9055 5877 50  0000 C CNN
+F 2 "" H 9050 6050 50  0001 C CNN
+F 3 "" H 9050 6050 50  0001 C CNN
+	1    9050 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9050 5900 9050 6050
+Wire Wire Line
+	9050 4950 9050 5100
+$Comp
+L power:GND #PWR?
+U 1 1 5FB64BF9
+P 6000 7050
+F 0 "#PWR?" H 6000 6800 50  0001 C CNN
+F 1 "GND" H 6005 6877 50  0000 C CNN
+F 2 "" H 6000 7050 50  0001 C CNN
+F 3 "" H 6000 7050 50  0001 C CNN
+	1    6000 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x10_Odd_Even J?
+U 1 1 5F832992
+P 5650 6500
+F 0 "J?" H 5700 7117 50  0000 C CNN
+F 1 "EFM8 EXP0" H 5700 7026 50  0000 C CNN
+F 2 "" H 5650 6500 50  0001 C CNN
+F 3 "~" H 5650 6500 50  0001 C CNN
+	1    5650 6500
+	-1   0    0    1   
+$EndComp
+NoConn ~ 5350 6000
+NoConn ~ 5350 6100
+NoConn ~ 5350 6200
+NoConn ~ 5350 6600
+NoConn ~ 5350 6800
+NoConn ~ 5350 6900
+NoConn ~ 5850 6700
+NoConn ~ 5850 6600
+NoConn ~ 5850 6500
+NoConn ~ 5850 6400
+NoConn ~ 5850 6300
+NoConn ~ 5850 6200
+NoConn ~ 5850 6100
+NoConn ~ 5850 6000
+Wire Wire Line
+	9050 5400 9050 5500
+Wire Wire Line
+	9050 5500 9500 5500
+Connection ~ 9050 5500
+Wire Wire Line
+	9050 5500 9050 5600
+Text GLabel 6000 6800 2    51   Input ~ 0
+CMP0_in
+Text GLabel 5200 6700 0    51   Input ~ 0
+ADC_in
+Text GLabel 5200 6500 0    51   Input ~ 0
+CMP1_in
+Text GLabel 5200 6400 0    51   Input ~ 0
+Motor_GPIO_2
+Text GLabel 5200 6300 0    51   Input ~ 0
+Motor_GPIO_1
+Wire Wire Line
+	5200 6300 5350 6300
+Wire Wire Line
+	5350 6400 5200 6400
+Wire Wire Line
+	5200 6500 5350 6500
+Wire Wire Line
+	5350 6700 5200 6700
+Wire Wire Line
+	5850 6900 6000 6900
+Wire Wire Line
+	6000 6900 6000 7050
+Wire Wire Line
+	5850 6800 6000 6800
+Text GLabel 4900 4750 2    51   Input ~ 0
+CMP1_in
+Text GLabel 4900 4600 2    51   Input ~ 0
+CMP0_in
+Wire Wire Line
+	4300 4600 4750 4600
+Wire Wire Line
+	4900 4750 4750 4750
+Wire Wire Line
+	4750 4750 4750 4600
+Connection ~ 4750 4600
+Wire Wire Line
+	4750 4600 4900 4600
+Text GLabel 9500 5500 2    51   Input ~ 0
+ADC_in
+Text GLabel 6400 2850 0    51   Input ~ 0
+Motor_GPIO_1
+Text GLabel 8700 2850 0    51   Input ~ 0
+Motor_GPIO_2
+Wire Wire Line
+	6400 2850 6550 2850
+Wire Wire Line
+	8700 2850 8850 2850
+Text Notes 4950 5800 0    79   ~ 0
+EMF8BB2 Dev Board\n
+Text Notes 600  2850 0    79   ~ 0
+Window regulator input
+Text Label 2000 3500 0    51   ~ 0
+Switch_input
+Text Label 2000 3400 0    51   ~ 0
+Ignition_input
+Wire Wire Line
+	2550 3500 2550 4100
+Wire Wire Line
+	1350 3500 2550 3500
+Wire Wire Line
+	2550 4100 3850 4100
+Wire Wire Line
+	2550 3400 2550 2200
+Wire Wire Line
+	1350 3400 2550 3400
+Wire Wire Line
+	3850 4500 3850 4600
+$Comp
+L Device:C C?
+U 1 1 5FD70971
+P 4300 4850
+F 0 "C?" H 4415 4896 50  0000 L CNN
+F 1 "1uF" H 4415 4805 50  0000 L CNN
+F 2 "" H 4338 4700 50  0001 C CNN
+F 3 "~" H 4300 4850 50  0001 C CNN
+	1    4300 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 4700 4300 4600
+Wire Wire Line
+	4300 4600 3850 4600
+Connection ~ 4300 4600
+Connection ~ 3850 4600
+Wire Wire Line
+	3850 4600 3850 4700
+$Comp
+L power:GND #PWR?
+U 1 1 5FD7A620
+P 4300 5150
+F 0 "#PWR?" H 4300 4900 50  0001 C CNN
+F 1 "GND" H 4305 4977 50  0000 C CNN
+F 2 "" H 4300 5150 50  0001 C CNN
+F 3 "" H 4300 5150 50  0001 C CNN
+	1    4300 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 5150 4300 5000
+$EndSCHEMATC

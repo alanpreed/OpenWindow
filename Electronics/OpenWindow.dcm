@@ -1,0 +1,26 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP +12V_switched
+D Power symbol creates a global label with name "+12V_switched"
+K power-flag
+$ENDCMP
+#
+$CMP FQU17P06TU
+D P-MOSFET transistor, 60V, -12A
+K transistor PMOS P-MOS P-MOSFET
+F http://www.farnell.com/datasheets/2304440.pdf
+$ENDCMP
+#
+$CMP MCCMA31-DC12V-C
+D Automotive relay, SPDT, 30A
+K 30A Single Pole Double Throw Relay
+F http://www.farnell.com/datasheets/1490803.pdf
+$ENDCMP
+#
+$CMP PGKE18CA-E3_54
+D Bidirectional transient-voltage-suppression diode
+K diode TVS thyrector
+F http://www.farnell.com/datasheets/2049206.pdf
+$ENDCMP
+#
+#End Doc Library
