@@ -150,7 +150,7 @@ void sm_raise_event(sm_event_t event) reentrant {
   }
   else {
     safe_printf("Error: event overflow!\r\n");
-    new_event = SM_EVENT_ERROR;
+    new_event = SM_EVENT_SWITCH_TO_IDLE;
   }
   IE_EA = interrupt_status;
 }
@@ -160,10 +160,12 @@ void sm_raise_event(sm_event_t event) reentrant {
 static void enter_error(char *error_string) {
   safe_printf("Error on event %d in state %d: ", (int)new_event, (int)state);
   safe_printf("%s\r\n", error_string);
-  motor_stop();
-  ADC_stop();
-  state = SM_STATE_ERROR;
-  new_event = SM_EVENT_NONE;
+//  motor_stop();
+//  ADC_stop();
+//  state = SM_STATE_ERROR;
+//  new_event = SM_EVENT_NONE;
+
+  enter_idle(SM_POSITION_MIDDLE);
 }
 
 static void enter_idle(sm_position_t new_position) {
