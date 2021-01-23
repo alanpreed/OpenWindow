@@ -4,7 +4,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "OpenWindow schematic"
+Title "OpenWindow dev board schematic"
 Date ""
 Rev "1"
 Comp "Alan Reed"
@@ -393,23 +393,23 @@ $EndComp
 $Comp
 L OpenWindow:FQU17P06TU Q?
 U 1 1 5F8CC278
-P 4350 1850
-F 0 "Q?" H 4555 1804 50  0000 L CNN
-F 1 "FQU17P06TU" H 4555 1895 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 4550 1950 50  0001 C CNN
-F 3 "http://www.farnell.com/datasheets/2304440.pdf" H 4350 1850 50  0001 C CNN
-	1    4350 1850
+P 4800 1850
+F 0 "Q?" H 5005 1804 50  0000 L CNN
+F 1 "FQU17P06TU" H 5005 1895 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 5000 1950 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2304440.pdf" H 4800 1850 50  0001 C CNN
+	1    4800 1850
 	1    0    0    1   
 $EndComp
 $Comp
 L OpenWindow:+12V_switched #PWR?
 U 1 1 5F8DEEA3
-P 4450 2250
-F 0 "#PWR?" H 4450 2100 50  0001 C CNN
-F 1 "+12V_switched" H 4350 2450 50  0000 C CNN
-F 2 "" H 4450 2250 50  0001 C CNN
-F 3 "" H 4450 2250 50  0001 C CNN
-	1    4450 2250
+P 4900 2250
+F 0 "#PWR?" H 4900 2100 50  0001 C CNN
+F 1 "+12V_switched" H 4800 2450 50  0000 C CNN
+F 2 "" H 4900 2250 50  0001 C CNN
+F 3 "" H 4900 2250 50  0001 C CNN
+	1    4900 2250
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -494,11 +494,9 @@ Wire Wire Line
 Wire Wire Line
 	4000 1400 4000 1250
 Wire Wire Line
-	4000 1250 4450 1250
+	4900 1250 4900 1650
 Wire Wire Line
-	4450 1250 4450 1650
-Wire Wire Line
-	4450 2050 4450 2250
+	4900 2050 4900 2250
 Wire Wire Line
 	3850 2550 3850 2400
 Wire Wire Line
@@ -509,14 +507,13 @@ Wire Wire Line
 	2800 2350 2800 2200
 Wire Wire Line
 	2800 2200 3050 2200
-Connection ~ 4000 1250
 Wire Wire Line
 	1350 3200 1500 3200
 Wire Wire Line
 	1350 3300 1500 3300
 Text Notes 2650 800  0    79   ~ 0
 Input protection
-Text Notes 4650 1650 0    79   ~ 0
+Text Notes 4050 2700 0    79   ~ 0
 Ignition power switching
 Text Notes 1600 5700 0    79   ~ 0
 5V supply
@@ -889,4 +886,20 @@ F 3 "" H 4300 5150 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4300 5150 4300 5000
+$Comp
+L Device:R R?
+U 1 1 5F855424
+P 4300 1850
+F 0 "R?" V 4093 1850 50  0000 C CNN
+F 1 "5K6" V 4184 1850 50  0000 C CNN
+F 2 "" V 4230 1850 50  0001 C CNN
+F 3 "~" H 4300 1850 50  0001 C CNN
+	1    4300 1850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4450 1850 4600 1850
+Wire Wire Line
+	4000 1250 4900 1250
+Connection ~ 4000 1250
 $EndSCHEMATC
