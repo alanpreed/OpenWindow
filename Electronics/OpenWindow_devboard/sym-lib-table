@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name OpenWindow)(type Legacy)(uri ${KIPRJMOD}/OpenWindow_devboard.lib)(options "")(descr ""))
+)
