@@ -1,3 +1,6 @@
+// CAD script for the mounting hardware for the current measurement PCB
+// Alan Reed 2021
+
 // Current PCB dimensions
 current_pcb_length = 31.5;
 current_pcb_width = 13.1;

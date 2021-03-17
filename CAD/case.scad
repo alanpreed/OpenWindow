@@ -1,4 +1,5 @@
 // CAD script for the case and lid of the OpenWindow enclosure
+// Alan Reed 2021
 
 // Dimensions of the items contained within the enclosure
 // OpenWindow PCB
