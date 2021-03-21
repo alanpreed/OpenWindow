@@ -599,31 +599,16 @@ Wire Wire Line
 	8300 4700 8300 4800
 Connection ~ 8300 4700
 $Comp
-L Connector_Generic:Conn_01x03 J2
-U 1 1 6024B9BE
-P 1050 3000
-F 0 "J2" H 1000 3300 50  0000 L CNN
-F 1 "C2 connector" H 800 3200 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1050 3000 50  0001 C CNN
-F 3 "~" H 1050 3000 50  0001 C CNN
-	1    1050 3000
-	-1   0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR02
 U 1 1 6025AAA8
-P 1400 3250
-F 0 "#PWR02" H 1400 3000 50  0001 C CNN
-F 1 "GND" H 1405 3077 50  0000 C CNN
-F 2 "" H 1400 3250 50  0001 C CNN
-F 3 "" H 1400 3250 50  0001 C CNN
-	1    1400 3250
+P 1800 3250
+F 0 "#PWR02" H 1800 3000 50  0001 C CNN
+F 1 "GND" H 1805 3077 50  0000 C CNN
+F 2 "" H 1800 3250 50  0001 C CNN
+F 3 "" H 1800 3250 50  0001 C CNN
+	1    1800 3250
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	1250 3100 1400 3100
-Wire Wire Line
-	1400 3100 1400 3250
 Text Notes 1400 2600 2    79   ~ 0
 C2 debug
 Text GLabel 8300 5450 3    51   Input ~ 0
@@ -1303,4 +1288,32 @@ $EndComp
 Connection ~ 7000 2950
 Wire Wire Line
 	7000 2950 7000 3050
+$Comp
+L Connector_Generic:Conn_01x04 J2
+U 1 1 60585D2A
+P 1050 3000
+F 0 "J2" H 968 3317 50  0000 C CNN
+F 1 "C2 debug" H 968 3226 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 1050 3000 50  0001 C CNN
+F 3 "~" H 1050 3000 50  0001 C CNN
+	1    1050 3000
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1800 3100 1800 3250
+$Comp
+L power:+3V3 #PWR0101
+U 1 1 60599B75
+P 1400 3200
+F 0 "#PWR0101" H 1400 3050 50  0001 C CNN
+F 1 "+3V3" V 1400 3400 50  0000 C CNN
+F 2 "" H 1400 3200 50  0001 C CNN
+F 3 "" H 1400 3200 50  0001 C CNN
+	1    1400 3200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1250 3200 1400 3200
+Wire Wire Line
+	1250 3100 1800 3100
 $EndSCHEMATC
